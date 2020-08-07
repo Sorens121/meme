@@ -1,16 +1,16 @@
 <div class="container-fluid queryCard">
-  <form>
+  <form #submitQuery="ngForm" (ngSubmit)="onSubmit(submitQuery)">
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">Vehicle No</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" name="vehicleno" [(ngModel)]="service.query.vehicleno">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label">From:</label>
       <div class="col-sm-10">
         <mat-form-field>
-          <input matInput [matDatepicker]="picker1">
+          <input matInput [matDatepicker]="picker1" name="fromDate" [(ngModel)]="service.query.fromDate">
           <mat-datepicker-toggle [for]="picker1" matSuffix></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
@@ -20,13 +20,13 @@
       <label class="col-sm-2 col-form-label">To:</label>
       <div class="col-sm-10">
         <mat-form-field>
-          <input matInput [matDatepicker]="picker2">
+          <input matInput [matDatepicker]="picker2" name="toDate" [(ngModel)]="service.query.toDate">
           <mat-datepicker-toggle [for]="picker2" matSuffix></mat-datepicker-toggle>
           <mat-datepicker #picker2></mat-datepicker>
         </mat-form-field>
       </div>
     </div>
-    <button class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary">Search</button>
   </form>
 </div>
 

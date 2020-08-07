@@ -1,1 +1,65 @@
-<p>vehicle-can-data works!</p>
+<div class="container-fluid parent">
+	<div class="container-fluid p-0  pt-4">
+            <h4 class='mb-3' style="text-align: center;">Vehicle CAN Data</h4>
+            <hr>
+<div class="row">
+    <div class="col-md-12 grid-margin">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" (keyup)="applyFilter($event.target.value)">
+            </div>
+        </form>
+        <div class="mat-elevation-z8 table-responsive">
+        <table mat-table [dataSource]="dataSource" matSort style="width: auto; text-align: center;" 
+                class='table-responsive table-striped table-hover'  border="1">
+             
+                <ng-container matColumnDef="srno" >
+              
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header >Sr No</th>
+                    <td mat-cell *matCellDef="let row">{{ row.srno}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="eventDateTime">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Event DateTime</th>
+                    <td mat-cell *matCellDef="let row">{{ row.eventDateTime}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="spnName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Spn Name</th>
+                    <td mat-cell *matCellDef="let row">{{ row.spnName}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="spnUnit">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Spn Unit</th>
+                    <td mat-cell *matCellDef="let row">{{ row.spnUnit}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="spnNumber">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Spn Number</th>
+                    <td mat-cell *matCellDef="let row">{{ row.spnNumber}}</td>
+                </ng-container>
+                <ng-container matColumnDef="spnValueDescription">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>SpnValue Description</th>
+                    <td mat-cell *matCellDef="let row">{{ row.spnValueDescription}}</td>
+                </ng-container>
+                <ng-container matColumnDef="spnValue">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Spn Value</th>
+                    <td mat-cell *matCellDef="let row">{{ row.spnValue}}</td>
+                </ng-container>
+                <ng-container matColumnDef="gpsLongitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>GpsLongitude</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsLongitude}}</td>
+                </ng-container>
+                 
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table> 
+
+      
+            <mat-paginator #TableVINPaginator="matPaginator" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>
+</div>
+

@@ -16,3 +16,39 @@
 nav a.active {
     color: #039be5;
 }
+
+.table td, .table th {
+    padding: 7px!important;
+    font-size: 11px;
+}
+.btn-sm {
+    font-size: 12px!important;
+    padding: 4px 15px!important;
+}
+th.mat-header-cell {
+    background-color: #07b7b7;
+    color: #FFF;
+}
+.mat-form-field{
+    max-width: 100%;
+}
+.form-control{
+    font-size: 11px!important;
+     height: 30px!important;
+    }
+.mat-datepicker-content .mat-calendar {
+    width: 200px!important;
+    height: 260px!important;
+}
+
+.container-fluid.parent {
+    padding-left: 20px!important;
+}
+
+.highleted-panel {
+    border: 2px solid #007bff!important;
+}
+
+td {
+    white-space: nowrap;
+}

@@ -1,1 +1,190 @@
-<p>telemetry-data works!</p>
+
+
+<div class="container-fluid parent">
+	<div class="container-fluid p-0  pt-4">
+            <h4 class='mb-3' style="text-align: center;">Telemetry Data</h4>
+            <hr>
+<div class="row">
+    <div class="col-md-12 grid-margin">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" (keyup)="applyFilter($event.target.value)">
+            </div>
+        </form>
+        <div class= "mat-elevation-z8 table-responsive">
+            <table mat-table [dataSource]="dataSource" matSort style="width: 100%;" border="1"
+                class='table-responsive table-striped table-hover'>
+              
+ 
+                <ng-container matColumnDef="timestamp">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Timestamp</th>
+                    <td mat-cell *matCellDef="let row">{{ row.timestamp}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsLongitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>GpsLongitude</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsLongitude}}</td>
+                </ng-container>
+
+               
+
+                <ng-container matColumnDef="fuel">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Fuel</th>
+                    <td mat-cell *matCellDef="let row">{{ row.fuel}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="digitalIpStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Digital Ip Status</th>
+                    <td mat-cell *matCellDef="let row">{{ row.digitalIpStatus}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="gpsAccuracyAlt">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Accuracy Alt</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsAccuracyAlt}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsAltitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Altitude</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsAltitude}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="speed">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Speed</th>
+                    <td mat-cell *matCellDef="let row">{{ row.speed}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsDistance">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Distance</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsDistance}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="accelZ">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>AccelZ</th>
+                    <td mat-cell *matCellDef="let row">{{ row.accelZ}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="crankOn">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>CrankOn</th>
+                    <td mat-cell *matCellDef="let row">{{ row.crankOn}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="accelY">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>AccelY</th>
+                    <td mat-cell *matCellDef="let row">{{ row.accelY}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="accelX">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>AccelX</th>
+                    <td mat-cell *matCellDef="let row">{{ row.accelX}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="analogIp2">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Analog Ip2</th>
+                    <td mat-cell *matCellDef="let row">{{ row.analogIp2}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="analogIp1">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Analog Ip1</th>
+                    <td mat-cell *matCellDef="let row">{{ row.analogIp1}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsSignalQuality">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Signal Quality</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsSignalQuality}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsLatitude">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Latitude</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsLatitude}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="odometer">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Odometer</th>
+                    <td mat-cell *matCellDef="let row">{{ row.odometer}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsCourseInDegrees">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Cours In Degrees</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsCourseInDegrees}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="packetStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Packet Status</th>
+                    <td mat-cell *matCellDef="let row">{{ row.packetStatus}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsFix">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Fix</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsFix}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="ignitionOn">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>IgnitionOn</th>
+                    <td mat-cell *matCellDef="let row">{{ row.ignitionOn}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gyroX">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>GyroX</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gyroX}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gyroY">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>GyroY</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gyroY}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gyroZ">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>GyroZ</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gyroZ}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsAccuracyLat">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>GpsAccuracyLat</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsAccuracyLat}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="noOfSatForFix">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>No of Sat For Fix</th>
+                    <td mat-cell *matCellDef="let row">{{ row.noOfSatForFix}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="gpsAccuracyLong">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gps Accuracy Long</th>
+                    <td mat-cell *matCellDef="let row">{{ row.gpsAccuracyLong}}
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5,10,15,20]"></mat-paginator>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
